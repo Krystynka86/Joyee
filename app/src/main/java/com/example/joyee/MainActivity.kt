@@ -6,7 +6,9 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
@@ -15,6 +17,7 @@ import com.example.joyee.models.BoardSize
 import com.example.joyee.models.MemoryCard
 import com.example.joyee.models.MemoryGame
 import com.example.joyee.utils.DEFAULT_ICONS
+import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener
 import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity() {
@@ -52,10 +55,26 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
             R.id.mi_refresh -> {
-                setupBoard()
+                if(memoryGame.getNumMoves() > 0 && !memoryGame.haveWonGame()) {
+                    showAlertDialog("Quit your current game?", null, View.OnClickListener {
+                        setupBoard()
+                    })
+                } else {
+                    setupBoard()
+                }
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun showAlertDialog(title: String, view: View?, positiveClickListener: View.OnClickListener) {
+        AlertDialog.Builder(this)
+            .setTitle(title)
+            .setView(view)
+            .setNegativeButton("Cancel", null)
+            .setPositiveButton("OK"){_, _ ->
+                positiveClickListener.onClick(null)
+            }.show()
     }
 
     private fun setupBoard() {
