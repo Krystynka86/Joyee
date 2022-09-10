@@ -2,6 +2,8 @@ package com.example.joyee.utils
 
 import com.example.joyee.R
 
+const val EXTRA_BOARD_SIZE = "EXTRA_BOARD_SIZE"
+
 val DEFAULT_ICONS = listOf(
     R.drawable.ic_home,
     R.drawable.ic_bee,

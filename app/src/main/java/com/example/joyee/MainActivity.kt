@@ -20,6 +20,7 @@ import com.example.joyee.models.BoardSize
 import com.example.joyee.models.MemoryCard
 import com.example.joyee.models.MemoryGame
 import com.example.joyee.utils.DEFAULT_ICONS
+import com.example.joyee.utils.EXTRA_BOARD_SIZE
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener
 import com.google.android.material.snackbar.Snackbar
 
@@ -92,7 +93,9 @@ class MainActivity : AppCompatActivity() {
             }
             // Navigate to a new activity/screen
             val intent = Intent(this, CreateActivity::class.java)
+            intent.putExtra(EXTRA_BOARD_SIZE, desiredBoardSize)
             startActivityForResult(intent, CREATE_REQUEST_CODE)
+
         })
     }
 

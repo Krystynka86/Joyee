@@ -5,6 +5,7 @@
       <map>
         <entry key="app/src/main/res/drawable/ic_face.xml" value="0.106" />
         <entry key="app/src/main/res/drawable/ic_refresh.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_create.xml" value="0.125" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/dialog_board_size.xml" value="0.1" />
         <entry key="app/src/main/res/layout/memory_card.xml" value="0.1" />
