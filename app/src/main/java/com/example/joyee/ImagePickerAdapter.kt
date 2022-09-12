@@ -40,10 +40,13 @@ class ImagePickerAdapter(private val context: Context,
         private val ivCustomImage = itemView.findViewById<ImageView>(R.id.ivCustomImage)
 
         fun bind(uri: Uri) {
-            TODO("Not yet implemented")
+            ivCustomImage.setImageURI(uri)
+            ivCustomImage.setOnClickListener(null)
         }
         fun bind() {
-            TODO("Not yet implemented")
+            ivCustomImage.setOnClickListener {
+                // Launch intent for user to select photos
+            }
         }
 
     }
