@@ -1,5 +1,6 @@
 package com.example.joyee
 
+import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -12,6 +13,10 @@ import com.example.joyee.models.BoardSize
 import com.example.joyee.utils.EXTRA_BOARD_SIZE
 
 class CreateActivity : AppCompatActivity() {
+
+    companion object {
+        private const val PICK_PHOTO_CODE = 655
+    }
 
     private lateinit var rvImagePicker: RecyclerView
     private lateinit var etGameName: EditText
@@ -34,7 +39,12 @@ class CreateActivity : AppCompatActivity() {
         numImagesRequired = boardSize.getNumPairs()
         supportActionBar?.title = "Choose pics (0 / $numImagesRequired)"
 
-        rvImagePicker.adapter = ImagePickerAdapter(this, chosenImageUris, boardSize )
+        rvImagePicker.adapter = ImagePickerAdapter(this, chosenImageUris, boardSize, object: ImagePickerAdapter.ImageClickListener {
+            override fun onPlaceholderClicked() {
+                launchIntentForPhotos()
+            }
+
+        })
         rvImagePicker.setHasFixedSize(true)
         rvImagePicker.layoutManager = GridLayoutManager(this, boardSize.getWidth())
 
@@ -46,5 +56,12 @@ class CreateActivity : AppCompatActivity() {
             return true
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun launchIntentForPhotos() {
+        val intent = Intent(Intent.ACTION_PICK)
+        intent.type = "image/*"
+        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
+        startActivityForResult(Intent.createChooser(intent, "Choose pics"),PICK_PHOTO_CODE)
     }
 }
