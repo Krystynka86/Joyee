@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1082118772739",
+    "project_id": "joyee-game",
+    "storage_bucket": "joyee-game.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1082118772739:android:428e0a1c9e7d41349dd636",
+        "android_client_info": {
+          "package_name": "com.example.joyee"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1082118772739-acmujikqa84uk04nl4gmdatefgb9v3d4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_CPmxh1jyFdfJU2CKqj-HASX6f9KGawo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1082118772739-acmujikqa84uk04nl4gmdatefgb9v3d4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
